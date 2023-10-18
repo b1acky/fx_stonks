@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if result %}
+        {{ result }}
+        <hr>
+    {% endif %}
+
+    {{ form(form) }}
+{% endblock %}
