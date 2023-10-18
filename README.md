@@ -1,14 +1,14 @@
 ## Установка
 
 ```
-composer install
-
 cp .env.example .env
 
 # заполнить .env
-# создать БД
 
-php bin/console doctrine:migrations:migrate
+composer install
+
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate -n
 ```
 
 ## Команды
@@ -26,6 +26,8 @@ php bin/console app:currency-exchange-calc BTC JPY 0.01
 
 ## Запустить в браузере
 
+С помощью Symfony CLI https://symfony.com/doc/current/setup/symfony_server.html
+
 ```
 symfony server:start
 ```
@@ -35,9 +37,10 @@ symfony server:start
 ## Тесты
 
 ```
-# Создать тестовую базу :(
-# Запустить все тесты
+# Создать тестовую базу
+APP_ENV=test php bin/console doctrine:database:create
+APP_ENV=test php bin/console doctrine:migrations:migrate -n 
 
+# Запустить все тесты
 php bin/phpunit
 ```
-
