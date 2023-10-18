@@ -89,3 +89,7 @@ class NextParser extends AbstractParser
 NEXT_URL=https://next/
 NEXT_TIMEOUT=60
 ```
+* Проверить
+```
+php bin/console app:currency-rates-import next
+```
